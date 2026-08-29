@@ -30,3 +30,6 @@ pnpm-debug.log*
 # os
 .DS_Store
 Thumbs.db
+
+# raw assets
+spreje/

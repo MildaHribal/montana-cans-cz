@@ -307,7 +307,7 @@ export function ScrollProgress() {
           width: '100%',
           transform: `scaleX(${p})`,
           background:
-            'linear-gradient(90deg, var(--accent, #c6f000), var(--accent, #c6f000))',
+            'linear-gradient(90deg, var(--accent, #84cc16), var(--accent, #84cc16))',
           transition: 'transform 80ms linear',
         }}
       />

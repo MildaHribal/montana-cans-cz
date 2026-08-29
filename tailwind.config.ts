@@ -16,11 +16,11 @@ const config: Config = {
         ash: '#9d9aa4',
         chalk: '#d8d4ca',
         ink: '#0a090d',
-        tape: '#c6f000',
+        tape: '#84cc16',
         marker: '#ff2d4a',
         wash: '#23e0a0',
         /** rewritten at runtime by the colour wall */
-        accent: 'var(--accent, #c6f000)',
+        accent: 'var(--accent, #84cc16)',
         'accent-ink': 'var(--accent-ink, #0a090d)',
       },
       fontFamily: {

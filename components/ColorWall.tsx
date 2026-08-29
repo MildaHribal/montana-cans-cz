@@ -52,7 +52,7 @@ export function ColorWall() {
       root.style.setProperty('--accent', active.hex);
       root.style.setProperty('--accent-ink', textOn(active.hex));
     } else {
-      root.style.setProperty('--accent', '#c6f000');
+      root.style.setProperty('--accent', '#84cc16');
       root.style.setProperty('--accent-ink', '#0a090d');
     }
   }, [active]);

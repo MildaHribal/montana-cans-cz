@@ -286,7 +286,7 @@ Sekce dostane jeden hlasitý tah, ne čtyři.
   gradient, obojí `position: fixed`, aby to četlo jako film na objektivu, ne jako
   textura přilepená k obsahu.
 - **Barvu dodávají produkty a uživatel.** Rozhraní samo je skoro monochromatické;
-  jediný sytý akcent drží `--accent` (výchozí acid lime `#c6f000`), který barevná stěna
+  jediný sytý akcent drží `--accent` (výchozí acid lime `#84cc16`), který barevná stěna
   přepisuje za běhu. Tailwind na tuhle proměnnou mapuje třídy `accent`
   a `accent-ink`, takže se zbytek stránky přebarví čistě přes CSS — sekce pod
   stěnou se kvůli tomu nemusí vůbec překreslovat v Reactu.

@@ -33,7 +33,7 @@
   --ink: #0a090d;
 
   /* Paint */
-  --tape: #c6f000;
+  --tape: #84cc16;
   --marker: #ff2d4a;
   --wash: #23e0a0;
 
@@ -41,7 +41,7 @@
    * Rewritten at runtime by the colour wall when a swatch is selected, so a
    * single click re-paints every CTA, rule and highlight on the page.
    */
-  --accent: #c6f000;
+  --accent: #84cc16;
   --accent-ink: #0a090d;
 
   /* Wall photograph behind the page. Set by <WallBackdrop>; empty by default
