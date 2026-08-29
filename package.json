@@ -14,8 +14,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "export": "next build",
-    "//deploy:cf": "Manual deploy only — the Pages Git integration builds this itself. Named deploy:cf because `pnpm deploy` is a reserved pnpm command.",
-    "deploy:cf": "next build && npx wrangler@latest pages deploy out"
+    "deploy:cf": "next build && npx wrangler deploy"
   },
   "dependencies": {
     "motion": "^12.40.0",

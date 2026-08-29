@@ -1,5 +1,6 @@
 'use client';
 
+import { asset } from '@/lib/basePath';
 import { useId } from 'react';
 import type { Product } from '@/lib/products';
 import { SprayCan } from './SprayCan';
@@ -10,12 +11,7 @@ import { Apparel } from './Apparel';
 import { Bag, Gloves, Refill, Stencil } from './Extras';
 
 /**
- * Single entry point from catalogue data to vector artwork.
- *
- * Callers never import the individual renderers — they hand over a `Product`
- * and the discriminated `art` union picks the drawing. Adding a product type
- * means adding one arm here and one to `ArtSpec`, and the compiler points at
- * both.
+ * Single entry point from catalogue data to product imagery and vector artwork.
  */
 
 type Props = {
@@ -25,7 +21,23 @@ type Props = {
 };
 
 export function ProductArt({ product, className = '', shadow = true }: Props) {
+  if (product.image) {
+    return (
+      <div className={`relative flex h-full w-full items-center justify-center ${className}`}>
+        <img
+          src={asset(product.image)}
+          alt={product.name}
+          className={`h-full w-full max-h-full max-w-full object-contain ${
+            shadow ? 'drop-shadow-[0_10px_20px_rgba(0,0,0,0.55)]' : ''
+          }`}
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
   const { art, hex } = product;
+  if (!art) return null;
 
   /* Per-instance, not per-product. The same product legitimately appears
      several times on one page (mega menu, shelf, rail, grid), and duplicate
