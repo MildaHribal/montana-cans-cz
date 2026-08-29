@@ -1,0 +1,23 @@
+# Cloudflare Pages header rules.
+#
+# Everything in public/ is copied to the root of out/ by the export, so this
+# file ships as /_headers and Pages picks it up automatically.
+#
+# Rules are matched top-down and the first match wins for a given header, so
+# the specific asset paths have to come before the catch-all.
+
+# Next.js fingerprints these filenames with a content hash, so a given URL can
+# never change contents — cache them forever.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photography is not content-hashed: a re-crop reuses the same filename. Cache
+# for a day and let the CDN serve stale while it revalidates in the background.
+/photos/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()

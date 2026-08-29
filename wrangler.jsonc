@@ -1,0 +1,13 @@
+{
+  // Cloudflare Pages project config.
+  //
+  // The Git integration reads the build command and output directory from the
+  // dashboard, not from here — this file exists so that `wrangler pages deploy`
+  // and `wrangler pages dev` work without arguments, and so the deploy target
+  // is written down in the repo instead of only living in a web form.
+  //
+  // The site is a pure static export: no Functions, no bindings, no runtime.
+  // That is why there is no compatibility_date and no _worker.js.
+  "name": "montana-cans-cz",
+  "pages_build_output_dir": "./out"
+}
