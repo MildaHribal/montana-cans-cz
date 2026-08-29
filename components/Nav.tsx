@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useCart } from '@/lib/cart';
 import { useShopUi } from '@/lib/shop-ui';
 import { Logotype } from './Logotype';
-import { PaintBandDrips } from './PaintBandDrips';
 
 /**
  * Header = two painted strips, no chrome.
@@ -62,10 +61,6 @@ export function Nav() {
   return (
     <>
       {/* ── PAINTED PROMO STRIP ─────────────────────────────────── */}
-      {/* The runs are a sibling of the band, not a child: .paint-band is a
-          clip-path, so anything crossing its lower edge from inside is cut off.
-          They hang short of the logo baseline on purpose — this is the first
-          mark on the page, and it has to read before it decorates. */}
       <div className="relative">
         <div className="relative z-[55] paint-band bg-accent text-accent-ink">
           <div className="content-grid">
@@ -78,9 +73,6 @@ export function Nav() {
             </ul>
           </div>
         </div>
-        {/* z-40 puts the runs *under* the sticky header (z-50), so paint can
-            cross the logo and the links without eating their legibility. */}
-        <PaintBandDrips className="z-40" />
       </div>
 
       {/* ── NAV ─────────────────────────────────────────────────── */}
@@ -90,11 +82,7 @@ export function Nav() {
         }`}
       >
         <div className="content-grid">
-          {/* Extra top padding is the clearance the paint runs hang into. The
-              longest run is 34 units of a 1440-wide viewBox capped at 1920px,
-              so it can never be more than ~45px long — pt-14 keeps the links
-              clear of it at every width. */}
-          <div className="flex items-center justify-between gap-6 pb-4 pt-11 md:pt-14">
+          <div className="flex items-center justify-between gap-6 py-4">
             <a
               href="#"
               className="block shrink-0"

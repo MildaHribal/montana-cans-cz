@@ -424,36 +424,3 @@
     scroll-behavior: auto !important;
   }
 }
-
-/* ═══════════════════════════════════════════════════════════════════
- * Paint beads shedding off the promo band's longest runs.
- *
- * transform-box: view-box makes translateY() move in SVG user units, so the
- * distance matches the viewBox the path was generated in rather than CSS
- * pixels. The bead spends most of the cycle invisible — it is meant to be
- * caught out of the corner of the eye, not watched.
- *
- * The final keyframe is opacity 0 on purpose: the global reduced-motion rule
- * collapses the duration and pins the element on its last frame, so a reader
- * who asked for no motion gets no stray dot instead of a frozen one.
- * ═════════════════════════════════════════════════════════════════ */
-@keyframes paint-drop-fall {
-  0%,
-  80% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  84% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(54px);
-    opacity: 0;
-  }
-}
-
-.paint-drop {
-  transform-box: view-box;
-  transform-origin: 0 0;
-  animation: paint-drop-fall 7s cubic-bezier(0.5, 0, 0.9, 0.4) infinite;
-}
