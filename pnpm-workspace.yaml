@@ -1,0 +1,10 @@
+# pnpm 11 reads build-script policy from here — not from package.json's "pnpm"
+# field and not from .npmrc, both of which it silently ignores for this setting.
+#
+# sharp is Next's image-optimisation codec. This project is a static export with
+# `images.unoptimized` and uses plain <img> throughout, so next/image is never
+# called and sharp's native binaries would be fetched and never executed.
+# pnpm hard-fails an install on an unapproved build script, so opting out has to
+# be written down rather than left implicit.
+allowBuilds:
+  sharp: false
