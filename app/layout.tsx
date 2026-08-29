@@ -34,6 +34,16 @@ export const metadata: Metadata = {
   title: 'Montana Cans CZ — Spreje, fixy, trysky & oblečení',
   description:
     'Přes 200 odstínů skladem, fixy, trysky, oblečení a doplňky pro writery, street artisty a každého, kdo chce tvořit. Z Brna k tobě do 24 hodin.',
+  /**
+   * The site already ships its own dark aesthetic, so the DarkReader
+   * extension only adds redundant styling — and it mutates deeply-nested
+   * SVG/gradient nodes after the server HTML arrives but before React
+   * hydrates, which triggers a hydration mismatch (and a flood of oversized
+   * dev-overlay stack-frame requests → 431). This meta tells DarkReader to
+   * leave the page alone, killing the mismatch at its source. suppressHydration-
+   * Warning only reaches one level deep, so it can't cover DarkReader's edits.
+   */
+  other: { 'darkreader-lock': 'true' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
