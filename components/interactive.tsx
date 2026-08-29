@@ -288,7 +288,10 @@ export function SectionNumber({
  * ──────────────────────────────────────────────────────────────── */
 export function ScrollProgress() {
   const [p, setP] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
@@ -299,15 +302,17 @@ export function ScrollProgress() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  if (!mounted) return null;
+
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] h-[2px] pointer-events-none">
+    <div
+      className="fixed top-0 left-0 right-0 z-[60] h-[2px] pointer-events-none"
+      suppressHydrationWarning
+    >
       <div
-        className="h-full origin-left"
+        className="h-full w-full origin-left bg-accent"
         style={{
-          width: '100%',
           transform: `scaleX(${p})`,
-          background:
-            'linear-gradient(90deg, var(--accent, #84cc16), var(--accent, #84cc16))',
           transition: 'transform 80ms linear',
         }}
       />
